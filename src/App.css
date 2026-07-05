@@ -1,0 +1,926 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --lime: #C6F94A;
+  --lime-dark: #9FD91E;
+  --ink: #151A1F;
+  --teal: #12A98E;
+  --sea: #7ba8b0;
+  --white: #FFFFFF;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Outer container ── */
+.pf-outer {
+  width: 100%;
+  min-height: 100vh;
+  background: #FFFFFF;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Background Gradients ── */
+.pf-bg-blu {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(200deg,
+    rgba(10, 75, 173, 0.55) 0%,
+    rgba(10, 75, 173, 0.35) 35%,
+    rgba(10, 75, 173, 0.08) 60%,
+    rgba(10, 75, 173, 0) 75%
+  );
+  filter: blur(75.8878px);
+  opacity: 0.9;
+}
+
+.pf-vector-29 {
+  display: none;
+}
+
+.pf-vector-31 {
+  position: absolute;
+  width: 97%;
+  height: 71.8%;
+  left: 1.4%;
+  top: -0.14%;
+  background: radial-gradient(63.36% 261.81% at 16.52% 68.36%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  mix-blend-mode: overlay;
+  filter: blur(75.8878px);
+}
+
+/* ── Fixed Chrome (nav + logo) ── */
+.pf-chrome {
+  position: fixed;
+  top: 24px;
+  left: 40px;
+  right: 40px;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.pf-chrome > div {
+  pointer-events: auto;
+}
+
+.pf-chrome-line {
+  position: absolute;
+  top: 18px;
+  left: 45px;
+  width: 65%;
+  height: 90px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.pf-logo-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.pf-logo-container {
+  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.pf-logo-container svg path {
+  transition: stroke 0.45s ease;
+}
+
+.pf-logo-container.scrolled {
+  transform: scale(0.9) rotate(5deg);
+}
+
+.pf-logo-container.scrolled {
+  box-shadow: 0 4px 20px rgba(198, 249, 74, 0.3);
+}
+
+/* ── Section base ── */
+.pf-section {
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  padding: 40px 48px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.pf-care-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #FFFFFF;
+}
+
+.pf-care-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(10, 75, 173, 0.70) 0%,
+    rgba(10, 75, 173, 0.40) 35%,
+    rgba(10, 75, 173, 0.15) 55%,
+    transparent 75%
+  );
+  filter: blur(80px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.pf-care-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HOME 1 (Hero - Normal Scroll) ── */
+.pf-hero {
+  padding-bottom: 20px;
+  justify-content: space-between;
+  background: transparent;
+  position: relative;
+}
+
+.pf-hero-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 72px;
+  margin-top: 80px;
+  width: 100%;
+}
+
+.pf-hero-figure-wrapper {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pf-hero-capsule {
+  width: 145px;
+  height: 440px;
+  background: #C6F94A;
+  clip-path: polygon(50% 0%, 100% 12%, 100% 88%, 50% 100%, 0% 88%, 0% 12%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0px 4px 24px rgba(255, 255, 255, 0.6);
+}
+
+.pf-hero-capsule::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 40%, rgba(0,0,0,0.15) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pf-hero-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.pf-hero-heading-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.pf-title-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-hero-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 96px;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  color: #2D3732;
+  margin: 0;
+  text-transform: none;
+  transform: translate(-30px, -40px);
+}
+.pf-hero-title-bold {
+  position: relative;
+  top: 30px;
+  left: -120px;
+}
+.pf-hero-title-innovators {
+  position: relative;
+  top: 40px;
+  left: -8px;
+}
+
+.pf-fig-row {
+  position: absolute;
+  top: 280px;
+  left: 400px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+.pf-fig-icon {
+  width: 38px;
+  height: 80px;
+}
+
+.pf-hero-tagline {
+  font-family: 'Anton', sans-serif;
+  font-size: 72px;
+  letter-spacing: 0.01em;
+  margin: 4px 0 0 0;
+  line-height: 1.0;
+  color: var(--ink);
+}
+
+.pf-choose {
+  font-family: 'Inter', sans-serif;
+  position: absolute;
+  top: 440px;
+  left: 580px;
+  font-weight: 500;
+  color: #FFFFFF;
+  font-size: 52px;
+  letter-spacing: -0.02em;
+}
+
+.pf-accent {
+  color: #C6F94A;
+  position: absolute;
+  top: 420px;
+  left: 760px;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.05);
+}
+
+.pf-accent-paths {
+  color: #C6F94A;
+  position: absolute;
+  top: 490px;
+  left: 570px;
+}
+
+.pf-hero-footer {
+  display: flex;
+  position: absolute;
+  top: 600px;
+  left: 1000px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pf-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  max-width: 340px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pf-footer-arrow-container {
+  margin-right: 24px;
+}
+
+/* ── Nav cluster ── */
+.pf-nav-container {
+  --x: -100px;
+  --y: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+  transform: translate(var(--x), var(--y));
+}
+
+.pf-nav-row {
+  display: flex;
+  gap: 18px;
+}
+
+.second-row {
+  justify-content: flex-end;
+}
+
+.pf-nav-card {
+  width: 170px;
+  height: 120px;
+  border-radius: 18px;
+  padding: 18px 24px;
+  background: #C6F94A;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition:
+    width .45s ease,
+    height .45s ease,
+    padding .45s ease,
+    transform .45s ease,
+    box-shadow .35s ease,
+    opacity .35s ease;
+}
+
+.card-program{ transform: translate(-45px,-25px); }
+.card-team{ transform: translate(-60px,-85px); }
+.card-orbit{ transform: translate(-70px,-18px); }
+.card-library{ transform: translate(-60px,-95px); }
+.card-careers{ transform: translate(-70px,-25px); }
+
+.nav-small .pf-nav-card{
+    width:118px;
+    height:90px;
+    padding:1px 20px;
+    border-radius:16px;
+}
+
+.nav-small .card-program{ transform: translate(160px,-45px); }
+.nav-small .card-team{ transform: translate(140px,-100px); }
+.nav-small .card-orbit{ transform: translate(120px,-40px); }
+.nav-small .card-library{ transform: translate(140px,-110px); }
+.nav-small .card-careers{ transform: translate(120px,-50px); }
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:Inter,sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:rgba(21,26,31,.6);
+    transition:
+        color .45s ease,
+        font-size .45s ease,
+        gap .45s ease;
+}
+
+.nav-small .eyebrow{
+    font-size:8px;
+    gap:6px;
+    color:#12A98E;
+}
+
+.pf-nav-card .label{
+    font-family:Anton,sans-serif;
+    font-size:24px;
+    line-height:1.1;
+    margin-top:10px;
+    color:#151A1F;
+    transition:
+        color .45s ease,
+        font-size .45s ease,
+        margin-top .45s ease;
+}
+
+.nav-small .pf-nav-card .label{
+    font-size:24px;
+    margin-top:8px;
+    color:#151A1F;
+}
+
+.eyebrow svg{
+    width:40px;
+    height:40px;
+    stroke:currentColor;
+    transition:
+        width .45s ease,
+        height .45s ease,
+        stroke .45s ease;
+}
+
+.nav-small .eyebrow svg{
+    width:40px;
+    height:40px;
+}
+
+/* ── Horizontal wrap (pinned track, JS-driven) ── */
+.pf-hwrap {
+  position: relative;
+  width: 100%;
+}
+
+.pf-hsticky {
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.pf-htrack {
+  display: flex;
+  height: 100vh;
+  transition: none;
+  will-change: transform;
+}
+
+/* ── Horizontal slides ── */
+.pf-hslide {
+  flex: 0 0 100vw;
+  height: 100vh;
+  min-height: 640px;
+  padding: 40px 48px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* ── Dot navigation ── */
+.pf-dot-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.pf-dot {
+  pointer-events: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pf-dot.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: scale(1.15);
+}
+
+.pf-dot:hover {
+  transform: scale(1.2);
+}
+
+/* ── Buttons ── */
+.pf-btn {
+  background: #9FD91E;
+  color: #151A1F;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 34px;
+  min-width: 180px;
+  min-height: 68px;
+  font-family: "Anton", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pf-btn:hover {
+  background: var(--ink);
+  color: #F2F5F0;
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .pf-chrome {
+    padding: 16px 20px;
+    top: 12px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .pf-chrome-line{
+    position:absolute;
+    inset:0;
+    width:200%;
+    height:200px;
+    top:14px;
+    overflow:visible;
+  }
+
+  .pf-hero-body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .pf-hero-capsule {
+    width: 110px;
+    height: 260px;
+  }
+
+  .pf-hero-copy {
+    align-items: center;
+  }
+
+  .pf-hero-heading-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .pf-hero-title {
+    font-size: 54px;
+  }
+  .pf-hero-title-pa {
+    font-size: 34px;
+  }
+
+  .pf-hero-tagline {
+    font-size: 42px;
+  }
+
+  .pf-choose {
+    font-size: 24px;
+  }
+
+  .pf-hslide > div:first-child {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .pf-section {
+    padding: 20px 20px 80px 20px;
+  }
+
+  .pf-hslide {
+    padding: 20px 20px 80px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* ── Chrome: logo left, nav cluster right — same clustered
+     staggered-card layout as desktop, just scaled down ── */
+  .pf-chrome {
+    top: 50px;
+    left: 16px;
+    right: 16px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .pf-chrome-line {
+    display: none;
+  }
+
+  .pf-logo-container {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+  .pf-logo-container svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Nav cluster: reset container-level desktop transform, keep
+     the same two-row structure, but re-apply desktop's per-card
+     stagger transforms below (scaled down) so mobile matches the
+     desktop cascade look instead of sitting flat. */
+  .pf-nav-container {
+    --x: 0px;
+    --y: 0px;
+    transform: none;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .pf-nav-row {
+    gap: 8px;
+  }
+
+  .pf-nav-card {
+    width: 62px;
+    height: 50px;
+    padding: 5px 6px;
+    border-radius: 9px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+
+  /* Same cascade/stagger as desktop, scaled to mobile card size
+     (ratio ≈ 62/170). Team & Library peek up higher, same as
+     desktop's layered "flap" look. */
+  .card-program{ transform: translate(-16px,-9px) !important; }
+  .card-team{ transform: translate(-22px,-31px) !important; }
+  .card-orbit{ transform: translate(-26px,-7px) !important; }
+  .card-library{ transform: translate(-22px,-35px) !important; }
+  .card-careers{ transform: translate(-26px,-9px) !important; }
+
+  .nav-small .pf-nav-card {
+    width: 62px;
+    height: 50px;
+    padding: 5px 6px;
+    overflow: hidden;
+  }
+
+  /* keep identical position when scrolled — no jarring shift */
+  .nav-small .card-program{ transform: translate(-16px,-9px) !important; }
+  .nav-small .card-team{ transform: translate(-22px,-31px) !important; }
+  .nav-small .card-orbit{ transform: translate(-26px,-7px) !important; }
+  .nav-small .card-library{ transform: translate(-22px,-35px) !important; }
+  .nav-small .card-careers{ transform: translate(-26px,-9px) !important; }
+
+  .eyebrow,
+  .nav-small .eyebrow {
+    font-size: 5.5px;
+    gap: 2px;
+    color: rgba(21,26,31,.65) !important;
+  }
+  .eyebrow svg,
+  .nav-small .eyebrow svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    stroke: rgba(21,26,31,.65) !important;
+  }
+  .eyebrow span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block !important;
+  }
+
+  .pf-nav-card .label,
+  .nav-small .pf-nav-card .label {
+    font-size: 9.5px !important;
+    margin-top: 2px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  /* push hero content below the nav row (taller now to clear the
+     staggered/cascading nav cards) */
+  .pf-hero {
+    padding-top: 108px;
+  }
+
+  .pf-hero-body {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .pf-hero-capsule svg {
+    width: 90px !important;
+    height: 200px !important;
+  }
+
+  .pf-hero-title {
+    font-size: 40px;
+  }
+
+  .pf-hero-tagline {
+    font-size: 30px;
+  }
+
+  .pf-dot-nav {
+    bottom: 20px;
+  }
+
+  .pf-fig-row {
+    display: none;
+  }
+
+  /* ── Hero copy: bring absolutely-positioned pieces back into flow ── */
+  .pf-hero-heading-row,
+  .pf-title-stack {
+    position: static;
+  }
+
+  .pf-hero-title-bold,
+  .pf-hero-title-innovators {
+    position: static !important;
+    top: 0 !important;
+    left: 0 !important;
+    text-align: center;
+  }
+
+  .pf-hero-tagline {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pf-choose,
+  .pf-accent,
+  .pf-accent-paths {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    display: block;
+    font-size: 28px !important;
+    color: var(--ink) !important;
+  }
+
+  .pf-hero-footer {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* ── Home2-5 cards: diagram stacks above text WITHIN each slide.
+     Everything is sized DOWN to fit one screen — no internal
+     scrolling on the card itself. ── */
+  .pf-care-card {
+    min-height: unset !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 78px 14px 14px !important;
+    padding: 0 !important;
+  }
+
+  .pf-hslide {
+    padding: 12px 12px 60px 12px !important;
+    justify-content: flex-start !important;
+    gap: 8px;
+  }
+
+  .pf-care-card > div {
+    padding: 12px !important;
+  }
+
+  /* icon/diagram panel: much smaller, fixed compact height */
+  .pf-care-card > div:first-child {
+    padding: 10px !important;
+  }
+  .pf-care-card > div:first-child > div {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    padding: 12px !important;
+  }
+  .pf-care-card > div:first-child > div svg {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 110px !important;
+  }
+
+  .pf-care-card h1 {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+  .pf-care-card h2 {
+    font-size: 15px !important;
+    margin-bottom: 8px !important;
+  }
+  .pf-care-card p {
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+  .pf-care-card ul {
+    font-size: 11px !important;
+    padding-left: 14px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+  .pf-care-card ul li {
+    margin-bottom: 2px;
+  }
+
+  /* right-side copy column: tighten padding so text block is compact */
+  .pf-care-card > div:last-child {
+    padding: 10px 14px !important;
+  }
+
+  /* CTA / teal callout block on Home4 */
+  .pf-care-card div[style*="background: rgb(18, 169, 142)"],
+  .pf-care-card > div:last-child > div {
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  /* arrow icon at end of copy */
+  .pf-care-card svg[width="20"] {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Home5 avatar + CTA buttons */
+  .pf-care-card .pf-hero-capsule {
+    width: 70px !important;
+    height: 150px !important;
+  }
+  .pf-care-card button {
+    width: 110px !important;
+    height: 72px !important;
+    font-size: 12px !important;
+    border-radius: 14px !important;
+  }
+  .pf-care-card h1[style*="font-size: 52"] {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+  }
+
+  .pf-hero-capsule {
+    width: 100px !important;
+    height: 230px !important;
+  }
+
+  .pf-hero-figure-wrapper .pf-hero-capsule {
+    width: 90px !important;
+    height: 200px !important;
+  }
+
+  /* NOTE: .pf-hwrap / .pf-hsticky / .pf-htrack / .pf-hslide are
+     intentionally left untouched here — the horizontal pinned
+     track keeps working on mobile because it's driven by
+     window.scrollY in App.jsx, which touch-scrolling updates
+     the same way mouse-wheel scrolling does. Don't force these
+     to position:static/column — that breaks the swipe-through
+     effect shown in the Figma mockup. */
+}
+
+@media (max-width: 480px) {
+  .pf-nav-card {
+    width: 62px;
+    height: 46px;
+  }
+
+  .pf-hero-title {
+    font-size: 34px;
+  }
+
+  .pf-hero-tagline {
+    font-size: 26px;
+  }
+
+  .pf-care-card button {
+    width: 100px !important;
+    height: 66px !important;
+    font-size: 11px !important;
+  }
+
+  .pf-care-card div[style*="max-width: 430"] {
+    max-width: 100% !important;
+  }
+}
