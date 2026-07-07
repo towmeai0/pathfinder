@@ -1,0 +1,426 @@
+/* ============================================================
+   HOW TO USE THIS FILE FOR MANUAL RESPONSIVE TWEAKS
+   ------------------------------------------------------------
+   Each rule below is labeled with:
+     [POSITION] -> properties that move an element (top, right,
+                   left, bottom, transform, transform-origin, margin)
+     [SIZE]     -> properties that resize an element (width, height,
+                   padding, font-size, border-radius, gap)
+   Edit the values directly under the matching breakpoint.
+   Breakpoints, largest to smallest:
+     min-width: 1025px  -> Desktop & large screens
+     max-width: 1024px  -> Tablet & small laptops
+     max-width: 768px   -> Mobile
+     max-width: 480px    -> Small mobile
+   ============================================================ */
+
+/* Desktop & Large Screens */
+@media (min-width: 1025px) {
+  .nav-cluster-wrapper {
+    /* [SIZE] scale(0.72) shrinks the whole nav cluster block down.
+       Increase toward 1 to make it bigger, decrease to shrink further. */
+    transform: scale(0.72) !important;
+    /* [POSITION] right: -110px pulls the nav cluster further right
+       (off the normal edge). Make less negative (e.g. -60px) to bring
+       it back on-screen, more negative to push it further right/off-screen. */
+    right: -110px !important;
+  }
+}
+
+/* Tablet & Small Laptops */
+@media (max-width: 1024px) {
+  .slide-shell {
+    /* [POSITION] flex-direction stacks diagram+copy vertically instead of side by side */
+    flex-direction: column !important;
+    /* [POSITION] margin: top right/left bottom -> outer spacing of the whole slide card */
+    margin: 15px 15px 8px !important;
+    /* [SIZE] auto height so the card grows to fit stacked content */
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .slide-diagram-block {
+    /* [SIZE] flex:1 lets this block take equal share of vertical stack */
+    flex: 1 !important;
+    /* [SIZE] inner spacing around the diagram */
+    padding: 12px !important;
+    /* [SIZE] full width since we're stacked now */
+    width: 100% !important;
+  }
+
+  .slide-diagram-card {
+    /* [SIZE] card height/min-height controls how tall the diagram box is */
+    height: auto !important;
+    min-height: 200px !important; /* increase/decrease to resize diagram area */
+    padding: 16px !important;
+  }
+
+  .slide-title {
+    /* [SIZE] font-size of the slide title */
+    font-size: 20px !important;
+    /* [POSITION] margin-bottom = spacing below the title before next content */
+    margin-bottom: 12px !important;
+  }
+
+  .slide-copy-block {
+    /* [SIZE] inner spacing of the text block (top/bottom  left/right) */
+    padding: 24px 20px !important;
+    width: 100% !important;
+  }
+
+  .slide-kicker {
+    font-size: 15px !important; /* [SIZE] */
+  }
+
+  .slide-bullets {
+    font-size: 14px !important; /* [SIZE] */
+    /* [POSITION] padding-left = indent of bullet list from left edge */
+    padding-left: 16px !important;
+  }
+
+  .operational-slide {
+    /* [POSITION] stack children vertically */
+    flex-direction: column !important;
+    /* [POSITION] outer spacing of the whole card */
+    margin: 15px 15px 8px !important;
+    padding: 16px !important;
+    min-height: auto !important;
+    height: auto !important;
+    /* [POSITION] gap = vertical space between grid block and copy block */
+    gap: 30px !important;
+  }
+
+  .operational-grid {
+    flex: 1 !important; /* [SIZE] */
+    width: 100% !important; /* [SIZE] */
+    /* [SIZE] 2 columns of equal width for the 4 mini-diagram cards */
+    grid-template-columns: 1fr 1fr !important;
+    /* [POSITION] gap between grid cells */
+    gap: 16px !important;
+  }
+
+  .operational-copy {
+    width: 100% !important; /* [SIZE] */
+    /* [POSITION] center-align the copy block instead of left-align */
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .operational-heading {
+    font-size: 26px !important; /* [SIZE] */
+    text-align: center !important; /* [POSITION] */
+  }
+
+  .operational-text {
+    font-size: 15px !important; /* [SIZE] */
+    max-width: 100% !important; /* [SIZE] */
+    text-align: center !important; /* [POSITION] */
+  }
+
+  .landing-slide {
+    /* [SIZE] overall landing card height/padding */
+    min-height: 380px !important;
+    padding: 14px !important;
+  }
+
+  .landing-content {
+    width: 92% !important; /* [SIZE] */
+    padding: 35px 20px !important; /* [SIZE] */
+  }
+
+  .landing-title {
+    font-size: 30px !important; /* [SIZE] */
+  }
+
+  .landing-description {
+    font-size: 14px !important; /* [SIZE] */
+    max-width: 90% !important; /* [SIZE] */
+  }
+
+  .pf-chrome-line {
+    /* hides the decorative top line entirely on tablet/mobile */
+    display: none !important;
+  }
+
+  /* ---- THIS IS THE MAIN NAV CLUSTER YOU LIKELY WANT TO TUNE ---- */
+  .nav-cluster-wrapper {
+    /* [POSITION] fixed = pins it relative to the viewport, not the page,
+       so it stays put while scrolling */
+    position: fixed !important;
+    /* [POSITION] top/right = distance from top-right corner of the screen.
+       Increase top to push it down, increase right to push it left. */
+    top: 8px !important;
+    right: 8px !important;
+    /* [SIZE] scale shrinks the whole cluster; adjust this first if it
+       looks too big/small on tablet */
+    transform: scale(0.5) !important;
+    /* [POSITION] transform-origin decides which corner the scale shrinks
+       toward — keep "top right" so it stays anchored to that corner */
+    transform-origin: top right !important;
+    /* stacking order above other content */
+    z-index: 100 !important;
+  }
+
+  .pf-dot-nav {
+    /* [POSITION] space above the dot navigation */
+    margin-top: 8px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slide-shell {
+    margin: 8px 8px 4px !important; /* [POSITION] outer spacing */
+    border-radius: 16px !important; /* [SIZE] corner rounding */
+  }
+
+  .slide-diagram-block {
+    padding: 8px !important; /* [SIZE] */
+  }
+
+  .slide-diagram-card {
+    min-height: 160px !important; /* [SIZE] diagram box height */
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .slide-title {
+    font-size: 17px !important; /* [SIZE] */
+    margin-bottom: 8px !important; /* [POSITION] */
+  }
+
+  .slide-copy-block {
+    padding: 16px 14px !important; /* [SIZE] */
+  }
+
+  .slide-kicker {
+    font-size: 13px !important; /* [SIZE] */
+    margin-bottom: 12px !important; /* [POSITION] */
+  }
+
+  .slide-bullets {
+    font-size: 13px !important; /* [SIZE] */
+    line-height: 1.7 !important; /* [SIZE] vertical spacing between lines */
+    padding-left: 14px !important; /* [POSITION] bullet indent */
+    margin-bottom: 16px !important; /* [POSITION] */
+  }
+
+  .operational-slide {
+    margin: 8px 8px 4px !important; /* [POSITION] */
+    padding: 12px !important; /* [SIZE] */
+    border-radius: 16px !important; /* [SIZE] */
+    gap: 20px !important; /* [POSITION] gap between grid & copy */
+  }
+
+  .operational-grid {
+    grid-template-columns: 1fr 1fr !important; /* [SIZE] */
+    gap: 10px !important; /* [POSITION] */
+  }
+
+  .operational-item {
+    min-height: 80px !important; /* [SIZE] mini-card height */
+    padding: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .operational-item-title {
+    font-size: 9px !important; /* [SIZE] */
+  }
+
+  .operational-heading {
+    font-size: 22px !important; /* [SIZE] */
+  }
+
+  .operational-text {
+    font-size: 14px !important; /* [SIZE] */
+    line-height: 1.6 !important; /* [SIZE] */
+  }
+
+  .operational-cta {
+    padding: 10px 24px !important; /* [SIZE] button size */
+    font-size: 13px !important; /* [SIZE] */
+  }
+
+  .landing-slide {
+    min-height: 300px !important; /* [SIZE] */
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  .landing-content {
+    width: 96% !important; /* [SIZE] */
+    padding: 25px 16px !important; /* [SIZE] */
+    border-radius: 14px !important;
+    gap: 16px !important; /* [POSITION] spacing between inner items */
+  }
+
+  .landing-title {
+    font-size: 26px !important; /* [SIZE] */
+  }
+
+  .landing-description {
+    font-size: 13px !important; /* [SIZE] */
+    margin-top: 14px !important; /* [POSITION] */
+  }
+
+  /* ---- NAV CLUSTER ON PHONES ---- */
+  .nav-cluster-wrapper {
+    /* [SIZE] smaller scale than tablet since screen is narrower */
+    transform: scale(0.42) !important;
+    /* [POSITION] right/top: distance from top-right corner.
+       NOTE: no "position: fixed" or "transform-origin" redeclared here —
+       it inherits "fixed" + "top right" origin from the 1024px block above.
+       If it looks off-anchored on phones, add those two lines here too. */
+    right: 4px !important;
+    top: 4px !important;
+  }
+
+  .pf-dot-nav button {
+    /* [SIZE] dot size */
+    width: 7px !important;
+    height: 7px !important;
+    /* [POSITION] space between dots */
+    margin: 0 3px !important;
+  }
+
+  .contact-modal {
+    padding: 20px 16px !important; /* [SIZE] */
+    max-width: 95% !important; /* [SIZE] */
+  }
+
+  .contact-modal-title {
+    font-size: 22px !important; /* [SIZE] */
+    margin-bottom: 18px !important; /* [POSITION] */
+  }
+
+  .contact-modal-overlay {
+    padding: 12px !important; /* [SIZE] breathing room around modal */
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .slide-shell {
+    margin: 6px 6px 3px !important; /* [POSITION] */
+    border-radius: 14px !important; /* [SIZE] */
+  }
+
+  .slide-diagram-card {
+    min-height: 140px !important; /* [SIZE] */
+    padding: 10px !important;
+    border-radius: 10px !important;
+  }
+
+  .slide-title {
+    font-size: 15px !important; /* [SIZE] */
+    margin-bottom: 6px !important; /* [POSITION] */
+  }
+
+  .slide-copy-block {
+    padding: 14px 12px !important; /* [SIZE] */
+  }
+
+  .slide-kicker {
+    font-size: 12px !important; /* [SIZE] */
+    margin-bottom: 10px !important; /* [POSITION] */
+  }
+
+  .slide-bullets {
+    font-size: 12px !important; /* [SIZE] */
+    line-height: 1.5 !important; /* [SIZE] */
+    padding-left: 12px !important; /* [POSITION] */
+    margin-bottom: 14px !important; /* [POSITION] */
+  }
+
+  .operational-slide {
+    margin: 6px 6px 3px !important; /* [POSITION] */
+    padding: 10px !important;
+    border-radius: 14px !important;
+    gap: 16px !important; /* [POSITION] */
+  }
+
+  .operational-grid {
+    grid-template-columns: 1fr 1fr !important; /* [SIZE] */
+    gap: 8px !important; /* [POSITION] */
+  }
+
+  .operational-item {
+    min-height: 70px !important; /* [SIZE] */
+    padding: 8px !important;
+    border-radius: 10px !important;
+  }
+
+  .operational-item-title {
+    font-size: 8px !important; /* [SIZE] */
+  }
+
+  .operational-heading {
+    font-size: 18px !important; /* [SIZE] */
+    margin-bottom: 10px !important; /* [POSITION] */
+  }
+
+  .operational-text {
+    font-size: 13px !important; /* [SIZE] */
+    margin-bottom: 16px !important; /* [POSITION] */
+    line-height: 1.5 !important; /* [SIZE] */
+  }
+
+  .operational-cta {
+    padding: 8px 20px !important; /* [SIZE] */
+    font-size: 12px !important; /* [SIZE] */
+  }
+
+.landing-slide {
+  min-height: 450px !important;
+  padding: 8px !important;
+  border-radius: 14px !important;
+  margin-top: 100px !important; /* Moves it down */
+}
+
+  .landing-content {
+    width: 98% !important; /* [SIZE] */
+    padding: 20px 12px !important; /* [SIZE] */
+    border-radius: 12px !important;
+    gap: 12px !important; /* [POSITION] */
+  }
+
+  .landing-title {
+    font-size: 22px !important; /* [SIZE] */
+  }
+
+  .landing-description {
+    font-size: 12px !important; /* [SIZE] */
+    margin-top: 10px !important; /* [POSITION] */
+    line-height: 1.5 !important; /* [SIZE] */
+  }
+
+  /* ---- NAV CLUSTER ON SMALL PHONES (smallest scale) ---- */
+  .nav-cluster-wrapper {
+    /* [SIZE] final, smallest scale for very narrow screens */
+    transform: scale(0.9) !important;
+    /* [POSITION] pinned right at the corner (0px offset) */
+    right: -10px !important;
+    top: 50px !important;
+  }
+
+  .contact-modal {
+    padding: 16px 12px !important; /* [SIZE] */
+    max-width: 100% !important; /* [SIZE] */
+    margin: 8px !important; /* [POSITION] */
+  }
+
+  .contact-modal-title {
+    font-size: 20px !important; /* [SIZE] */
+    margin-bottom: 14px !important; /* [POSITION] */
+  }
+
+  .contact-modal-overlay {
+    padding: 8px !important; /* [SIZE] */
+  }
+
+  .pf-dot-nav button {
+    width: 5px !important; /* [SIZE] */
+    height: 5px !important; /* [SIZE] */
+    margin: 0 2px !important; /* [POSITION] */
+  }
+}
