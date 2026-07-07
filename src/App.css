@@ -894,7 +894,7 @@ body {
   width: 90px !important;
   height: 200px !important;
 
-  transform: translate(-120px, 80px);
+  transform: translate(-120px, 140px);
 }
 
   /* NOTE: .pf-hwrap / .pf-hsticky / .pf-htrack / .pf-hslide are
