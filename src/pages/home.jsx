@@ -3,7 +3,7 @@ import useScrollProgress from "../hooks/useScrollProgress";
 import Chrome from "../components/layout/Chrome";
 import HeroSection from "../components/sections/HeroSection";
 import BlindSpotSection from "../components/sections/BlindSpotSection";
-import StereotypicalSection from "../components/sections/stereotypicalSection";
+import StereotypicalSection from "../components/sections/StereotypicalSection";
 import RoadmapSection from "../components/sections/RoadmapSection";
 import NextStepSection from "../components/sections/NextStepSection";
 import { HOME_SLIDES } from "../constants/theme";
